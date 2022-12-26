@@ -1,0 +1,58 @@
+f1 = []
+f2 = []
+f3 = []
+l1 = []
+###### For Dynamic inputs ######
+n = int(input("Enter the number of students who attended the training program:- "))
+print("Enter the roll numbers of students:- ")
+for i in range(n):
+ a = int(input())
+ l1.append(a)
+key = int(input("Enter the roll number you want to search for:- "))
+
+###### Function for Fibonacci search ######
+def fib(l1,key):
+ a1, a2, a3 = 0, 1, 0
+ for i in range(len(l1)):
+ a3 = a1 + a2
+ f3.append(a3)
+ f1.append(a1)
+ a1 = a2
+ f2.append(a2)
+ a2 = a3
+ offset = -1
+ temp = len(f1)
+ temp1 = True
+ while(temp1 == True):
+ i = min(offset + f1[temp - 1] , len(l1) - 1)
+ if l1[i] < key:
+ temp = temp -1
+ if l1[i] > key:
+ temp = temp + 1
+ if l1[i] == key:
+ temp1 = False
+ print("Roll no. ", key, "is present in the the students training program list at position", i+1)
+ 
+###### Function for Binary search ######
+def bin(l1, key):
+temp1 = 0
+temp2 = len(l1) - 1
+while temp1 <= temp2:
+mid = (temp1 + (temp2) )// 2
+mid_val = l1[mid]
+if mid_val == key:
+print("Roll no. ", key, "is present in the the students training program list at position", mid + 1)
+break
+elif key< mid_val:
+temp2 = mid-1
+else:
+temp1 = mid + 1
+while(True):
+temp3 = int(input("Which operation do you want to perform:- \n 1)
+Fibonacci Search \n 2) Binary Search \n 3) Exit \n"))
+if temp3 == 1:
+fib(l1, key)
+elif temp3 == 2:
+bin(l1, key)
+else:
+break
