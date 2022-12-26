@@ -1,0 +1,48 @@
+A = ["Mitchell", "Ria", "Bree", "Vee", "Owen"] # List of students who play cricket
+B = ["Mina", "Emily", "Bree", "Vee"] # List of students who play badminton
+C = ["Kat", "Maria", "Mitchell", "Owen", "Vee"] # List of students who play football
+l1, l2, l3, l4 = [], [], [], []
+def part1():
+ for i in A:
+ if i in B:
+ l1.append(i)
+ print("List of students who play both cricket and badminton", l1)
+def part2():
+ for x in A:
+ if x not in B:
+ l2.append(x)
+ for x in B:
+ if x not in A:
+ l2.append(x)
+ print("List of students who play either cricket or badminton but not both", l2)
+def part3():
+ for z in C:
+ if z not in A and z not in B:
+ l3.append(z)
+ print("Number of students who play neither cricket nor badminton", (len(l3)))
+def part4():
+ for m in A:
+ if m in C and m not in B:
+ l4.append(m)
+ print("Number of students who play cricket and football but not badminton",
+len(l4))
+print("1) To display List of students who play both cricket and badminton")
+print("2) To display List of students who play either cricket or badminton but not
+both")
+print("3) To display Number of students who play neither cricket nor badminton")
+print("4) To display Number of students who play cricket and football but not
+badminton")
+print("5) To quit")
+option = 0
+while option != 6:
+ option = int(input("Enter your choice: "))
+ if option == 1:
+ part1()
+ if option == 2:
+ part2()
+ if option == 3:
+ part3()
+ if option == 4:
+ part4()
+ if option == 5:
+ exit() 
