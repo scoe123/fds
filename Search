@@ -1,0 +1,36 @@
+l1 = []
+def sentinel (l1, n, key):
+ last = l1[n-1]
+ l1[n-1] = key
+ i = 0
+ while(l1[i]!=key):
+ i = i + 1
+ l1[n - 1] = last
+ if((l1[i] == key)):
+ print("Roll no. ", key, "is present in the the students training program list at position", i + 1)
+ else:
+ print("Roll no. ", key, " was not present in the student's training program list.")
+def linearSearch():
+ flag=False
+ for i in range (len(l1)):
+ if l1[i]==key:
+ flag=True
+ print("Roll no. ", key, "is present in the the students training program list at position", i+1)
+ break
+ if flag==False:
+ print("Roll no. ", key, "is NOT present in the the students training program list.")
+n = int(input("Enter the number of students who attended the training program:- "))
+print("Enter the roll numbers of students:- ")
+for i in range(n):
+ a = int(input())
+ l1.append(a)
+key = int(input("Enter the roll number you want to search for:- "))
+while(True):
+ temp3 = int(input("Which operation do you want to perform:- \n 1)
+Sentinel Search \n 2) Linear Search \n 3) Exit \n"))
+ if temp3 == 1:
+ sentinel(l1, n, key)
+ elif temp3 == 2:
+ linearSearch()
+ else:
+ break
