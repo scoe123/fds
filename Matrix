@@ -1,0 +1,88 @@
+A=[]
+B=[]
+X=[[0,0,0],
+ [0,0,0],
+ [0,0,0]]
+R=int(input("ENTER THE NO. OF ROW : "))
+C=int(input("ENTER THE NO. OF COLUMN : "))
+
+#INPUT FOR FIRST MATRIX
+for i in range(R):
+ a=[]
+ for j in range(C):
+ a.append(int(input()))
+ A.append(a)
+for i in range(R):
+ for j in range(C):
+ print(A[i][j],end=" ")
+ print()
+ 
+#INPUT FOR SECOND MATRIX
+for i in range(R):
+ b=[]
+ for j in range(C):
+ b.append(int(input()))
+ B.append(b)
+for i in range(R):
+ for j in range(C):
+ print(B[i][j],end=" ")
+ print()
+ 
+#ADDITON
+def addition():
+ for i in range(len(A)):
+ for j in range(len(A[0])):
+ X[i][j]=A[i][j]+B[i][j]
+ for r in X:
+ print(r)
+ 
+#SUBTRACTION
+def subtraction():
+ for i in range(len(A)): 
+ for j in range(len(A[0])):
+ X[i][j]=A[i][j]- B[i][j]
+ for r in X:
+ print(r)
+ 
+#MULTIPLICATION
+def multiplication():
+ for i in range(len(A)): #iterating by row A
+ for j in range(len(B[0])): #iterating by column by B
+ for k in range(len(B)): #iterating by rows of B
+ X[i][j]+=A[i][k]*B[k][j]
+ for r in X:
+ print(r)
+ 
+#TRANSPOSE
+def transpose():
+ for i in range(len(A)):
+ for j in range (len(B[0])):
+ X[j][i]=A[i][j]
+ for r in X:
+ print(r)
+
+print("\n PROGRAM FOR MATRIX OPERATIONS ")
+while(True):
+print("\n1. ADDITION OF TWO MATRICES ")
+print("\n2.SUBTRACTION OF TWO MATRICES" )
+print("\n3.MULTIPLICATION OF TWO MATRICES ")
+print("\n4.TRANSPOSE OF MATRIX ")
+print("\n5. EXIT")
+print("\n ENTER YOUR CHOICE: ")
+choice=int(input())
+if(choice==1):
+ print("THE ADDITION OF TWO MATRICES IS : ")
+ addition()
+elif(choice==2):
+ print("THE SUBTRACTION OF TWO MATRICES IS : ")
+ subtraction()
+elif(choice==3):
+ print("THE MULTIPLICATION OF TWO MATRICES IS : ")
+ multiplication()
+elif(choice==4):
+ print("THE TRANSPOSE OF MATRIX IS : ")
+ transpose()
+else:
+ print("\n EXITING ")
+ break
+ 
