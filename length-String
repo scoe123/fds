@@ -1,0 +1,107 @@
+s = input("Enter a string: ")
+# s = "Welcome to SCOE"
+
+############ to calculate the length of the string ############
+count = 0
+for y in s:
+ count += 1
+print("The length (characters with spaces) of the string is ", count)
+
+############ to split the string ############
+
+def Split():
+ global str_list
+ str_list = []
+ temp = ""
+ for charc in s:
+ if charc == " ":
+ str_list.append(temp)
+ temp = ""
+ else:
+ temp += charc
+ if temp:
+ str_list.append(temp)
+ print("List of words in the string is", str_list)
+ 
+############ to display word with the longest length ############
+
+def long_str():
+ global longest_word
+ max = 0
+ for word in str_list:
+ if len(word) > max:
+ max = len(word)
+ longest_word = word
+ print("Word with the longest length is '", longest_word, "'")
+ 
+############ To determines the frequency of occurrence of particular character in the string ############
+
+def freq_char():
+ character = input("Enter a character which is to be counted: ")
+ c = 0
+ for j in s:
+ if j == character:
+ c += 1
+ print("The frequency of occurrence of particular character in the string", c)
+
+############ To check whether given string is palindrome or not ############
+
+def palli():
+ if s == s[::-1]:
+ print("The given string (", s, ") is a Palindrome.")
+ else:
+ print("The given string (", s, ") is not a Palindrome.")
+ 
+############ To display index of first appearance of the substring ############
+
+def sub_str():
+ substring = input("Enter a substring which is to be counted: ")
+ for b in range(len(str_list)):
+ if substring == str_list[b]:
+ print("The index of first appearance of the given substring is", b)
+ break
+ 
+############ To count the occurrences of each word in a given string ############
+
+def occur_str():
+ i = 0
+ temp = 0
+ occur = 0
+ while i < len(str_list):
+ for h in str_list:
+ if str_list[i] == h:
+ occur += 1
+ for j in range(i):
+ if str_list[j] == str_list[i]:
+ temp += 1
+ if temp == 0:
+ print(str_list[i], " occurs", occur, " times.")
+ i += 1
+ occur = 0
+ temp = 0
+print("1) To display word with the longest length")
+print("2) To determines the frequency of occurrence of particular character in the string")
+print("3) To check whether given string is palindrome or not")
+print("4) To display index of first appearance of the substring")
+print("5) To count the occurrences of each word in a given string")
+print("6) To quit")
+option = 0
+while option != 6:
+ option = int(input("Enter your choice: "))
+ if option == 1:
+ Split()
+ long_str()
+ if option == 2:
+ Split()
+ freq_char()
+ if option == 3:
+ Split()
+ palli()
+ if option == 4:
+ Split()
+ sub_str()
+ if option == 5:
+ Split()
+ occur_str()
+ if option == 6:
+ exit()
