@@ -1,0 +1,66 @@
+####### Function for displaying top five percentage #######
+
+def topFive(percentage):
+ print("Top 5 Percentage are : ")
+ for i in range (num-5, num):
+ print(percentage[-i])
+
+####### Function for Selection Sort of elements #######
+def selSort(percentage):
+ for i in range(len(percentage)):
+ Min = i
+ for j in range(i + 1, len(percentage)):
+ if percentage[j] < percentage[Min]:
+ Min = j
+ #swapping
+ percentage[i], percentage[Min] = percentage[Min], percentage[i]
+ print("Percentage of students after Selection Sort: ")
+ for i in range(len(percentage)):
+ print(percentage[i])
+
+####### Function for Bubble Sort of elements #######
+def bubSort(percentage):
+ n = len(percentage)
+ for i in range(n - 1):
+ for j in range(0, n - i - 1):
+ if percentage[j] > percentage[j + 1]:
+ percentage[j], percentage[j + 1] = percentage[j + 1], percentage[j]
+ print("Percentage of students after Bubble Sort:")
+ for i in range(len(percentage)):
+ print(percentage[i])
+percentage=[]
+num = int(input("Enter number of students whose Percentage are to be displayed : "))
+print("Enter Percentage for ",num,"students: ")
+for i in range(0, num):
+ m = float(input())
+ percentage.append(m)
+print("The Percentage of",num,"students are : ", percentage)
+option=1;
+while option==1:
+ print("1. Selection Sort")
+ print("2. Bubble Sort")
+ print("3. Exit")
+ ch=int(input("\n\nEnter your choice: "))
+ if ch==1:
+ selSort(percentage)
+ a=input("\nDo you want to display top percentage from the list (yes/no) : ")
+ if a=='yes'or'Yes'or 'YES':
+ topFive(percentage)
+ else:
+ print("\nThanks for using this program!")
+ option=0
+ elif ch==2:
+ bubSort(percentage)
+ a = input("\nDo you want to display top five percentage from the list (yes/no) :")
+ if a == 'yes'or'Yes'or 'YES':
+ topFive(percentage)
+ else:
+ print("\nThanks for using this program!")
+ option = 0
+ elif ch==3:
+ print("\nThanks for using this program!!")
+ option=0
+ else:
+ print("\nEnter a valid choice!!")
+ print("\nThanks for using this program!!")
+ option=0
